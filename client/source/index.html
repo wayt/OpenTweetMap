@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="opentm">
+<head>
+    <title><!-- %%title%% --></title>
+
+    <meta charset="utf-8" />
+    <meta property="description" name="description" content="Visualize trending tweets in real time on a globe" data-app>
+    <base href="/" />
+    <!-- %%styles%% -->
+
+
+
+    <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css">
+    <!-- %%scripts%% -->
+
+</head>
+  <body ng-controller="AppController" data-ng-init="onload()">
+
+    <div ng-include="'header.tpl.html'"></div>
+    <main class="content">
+        <div ng-view></div>
+    </main>
+    <div ng-include="'footer.tpl.html'"></div>
+
+    <script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </body>
+</html>

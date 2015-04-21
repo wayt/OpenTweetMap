@@ -1,0 +1,27 @@
+.contentcontainer {
+  width: 100%;
+  height: 600px; }
+
+#map {
+  margin-top: 10px;
+  margin-right: 20px; }
+
+.searchbar {
+  font-size: 8px; }
+
+.input {
+  margin-left: 10px;
+  width: 150px; }
+
+#container {
+  overflow: auto; }
+
+#search-icon {
+  width: 18px;
+  height: 18px;
+  margin-top: -10px; }
+
+#search-button {
+  width: 32px;
+  height: 32px;
+  margin-left: -5px; }

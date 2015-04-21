@@ -1,0 +1,14 @@
+<header role="navigation" ng-controller="HeaderController">
+    <md-content>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button ng-href="#{{link.url}}" ng-class="{active:isNavbarActive(link.url)}" ng-repeat="link in menuLinks">
+                    {{link.title}}
+                </md-button>
+                <span flex></span>
+                <h2><span>OpenTweetMap</span></h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+    </md-content>
+</header>

@@ -1,0 +1,28 @@
+<md-content ng-cloak>
+    <md-toolbar class="md-hue-3">
+        <div layout="row">
+            <div layout layout-sm="column" layout-align="start center">
+                <md-input-container class="input">
+                    <label class="md-body-1">Search #hashtag</label>
+                    <input ng-model="search.name" class="md-body-1">
+                </md-input-container>
+                <md-button class="md-icon-button" id="seach-button" aria-label="Search" ng-click="addHashtag(search.name)">
+                    <md-icon id="search-icon" md-svg-src="assets/img/search.svg"></md-icon>
+                </md-button>
+            </div>
+        </div>
+        <div layout="row">
+            <md-chip ng-repeat="item in hashtags" class="md-body-1" width="100px">
+                    {{item.name}}
+            <md-chip-remove class="md-caption" ng-click="deleteHashtag(item.name)">
+            </md-chip-remove>
+            </md-chip>
+        </div>
+    </md-toolbar>
+    <div layout="row" layout-sm"column" class="contentcontainer">
+        <div id="container" flex="20" flex-order-sm="100">
+        </div>
+        <div id="map" flex="77" flex-order-sm="100">
+        </div>
+    </div>
+</md-content>

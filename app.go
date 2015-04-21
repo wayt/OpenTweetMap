@@ -3,13 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/chimeracoder/anaconda"
-	"golang.org/x/net/websocket"
 	"log"
 	"net/http"
 	"net/url"
 	"strings"
 	"time"
+
+	"github.com/chimeracoder/anaconda"
+	"golang.org/x/net/websocket"
 )
 
 var (
@@ -61,7 +62,12 @@ func EchoServer(ws *websocket.Conn) {
 			fmt.Println(tweet.Place)
 			if len(tweet.Place.BoundingBox.Coordinates) != 0 {
 
-				ws.Write([]byte(fmt.Sprintf(`{"screen_name":"@%s", "name":"%s", "text":"%s", "created_at":"%s", "location":[%f,%f]}`, tweet.User.ScreenName, tweet.User.Name, tweet.Text, tweet.CreatedAt, tweet.Place.BoundingBox.Coordinates[0][0][1], tweet.Place.BoundingBox.Coordinates[0][0][0])))
+				_, err := ws.Write([]byte(fmt.Sprintf(`{"screen_name":"@%s", "name":"%s", "text":"%s", "created_at":"%s", "location":[%f,%f], "id":"%d"}`, tweet.User.ScreenName, tweet.User.Name, url.QueryEscape(tweet.Text), tweet.CreatedAt, tweet.Place.BoundingBox.Coordinates[0][0][1], tweet.Place.BoundingBox.Coordinates[0][0][0], tweet.Id)))
+				if err != nil {
+					fmt.Printf("Socket not responding, closing\n")
+					ws.Close()
+					return
+				}
 			}
 		}
 
